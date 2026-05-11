@@ -1,0 +1,3 @@
+com\example\mcpclient\McpClientApplication.class
+com\example\mcpclient\service\ChatService.class
+com\example\mcpclient\controller\ChatController.class

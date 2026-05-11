@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: product-catalogue-mcp-server
+  ai:
+    mcp:
+      server:
+        name: product-catalogue
+        version: 1.0.0
+        description: "Exposes product catalogue tools — search, lookup, and inventory queries"
+        protocol: STREAMABLE          # Streamable HTTP (replaces deprecated SSE)
+        type: SYNC
+        streamable-http:
+          mcp-endpoint: /mcp          # Claude Desktop / any client connects here
+          keep-alive-interval: 30s
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.example: DEBUG
+    org.springframework.ai.mcp: DEBUG

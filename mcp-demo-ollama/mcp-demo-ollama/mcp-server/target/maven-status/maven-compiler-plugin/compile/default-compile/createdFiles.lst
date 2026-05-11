@@ -1,0 +1,5 @@
+com\example\mcpserver\model\Product.class
+com\example\mcpserver\config\McpServerConfig.class
+com\example\mcpserver\service\ProductCatalogueTools.class
+com\example\mcpserver\McpServerApplication.class
+com\example\mcpserver\service\ProductCatalogueService.class

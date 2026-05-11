@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: product-catalogue-mcp-client
+
+  ai:
+    # ── Ollama — runs locally, no API key required ─────────────────────────
+    # Make sure Ollama is running: ollama serve
+    # And the model is pulled:    ollama pull qwen2.5:7b
+    ollama:
+      base-url: http://localhost:11434     # Ollama default — don't change unless you moved it
+      chat:
+        options:
+          model: qwen2.5:7b               # Best tool-calling model for MCP demos
+          temperature: 0.2                # Lower = more deterministic tool decisions
+          # ── Uncomment for a lighter/faster model (4GB RAM vs 8GB) ──
+          # model: llama3.2:3b
+          # ── Uncomment for best quality (needs ~16GB RAM) ──
+          # model: qwen2.5:14b
+
+    # ── MCP Client — connects to our Spring Boot MCP Server ───────────────
+    mcp:
+      client:
+        toolcallback:
+          enabled: true
+        streamable-http:
+          connections:
+            product-server:
+              url: http://localhost:8080   # MCP server address
+
+server:
+  port: 8081
+
+logging:
+  level:
+    com.example: DEBUG
+    org.springframework.ai.mcp: INFO
